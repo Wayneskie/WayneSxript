@@ -1,123 +1,125 @@
--- Services Gyat 
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local playerGui = player:WaitForChild("PlayerGui")
+--open source don't steal 
 
--- Variables
-local antiFlingEnabled = false
-local MAX_VELOCITY = 100 -- Max allowable velocity before anti-fling is triggered
 
--- UI Setup
+-- Instances:
+
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = playerGui
-ScreenGui.Name = "AntiFlingUI"
-ScreenGui.ResetOnSpawn = false -- Make sure the GUI stays even after respawn
+local Frame = Instance.new("Frame")
+local Frame_2 = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local UICorner_Frame = Instance.new("UICorner")
+local UICorner_Button = Instance.new("UICorner")
 
--- UI Styling: Transparent Black Background
-ScreenGui.BackgroundTransparency = 0.5
-ScreenGui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ScreenGui.BorderSizePixel = 0
+-- Properties:
 
--- Button Setup
-local button = Instance.new("TextButton")
-button.Size = UDim2.new(0, 200, 0, 60)
-button.Position = UDim2.new(0.5, -100, 0.5, -30)
-button.Text = "Enable Anti-Fling"
-button.TextColor3 = Color3.fromRGB(255, 255, 255)
-button.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Transparent black button
-button.Font = Enum.Font.GothamBold
-button.TextSize = 24
-button.Parent = ScreenGui
-button.AutoButtonColor = false -- Disable automatic button color change on hover
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+print("sub to DuplexScripts")
 
--- Button Transparency and Border
-button.BackgroundTransparency = 0.5 -- Make the button transparent
-button.BorderSizePixel = 2
-button.BorderColor3 = Color3.fromRGB(255, 255, 255) -- White border for contrast
-button.AnchorPoint = Vector2.new(0.5, 0.5)
-button.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.3
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.388539821, 0, 0.427821517, 0)
+Frame.Size = UDim2.new(0, 158, 0, 110)
 
--- Add Rounded Corners to the Button
-local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 12) -- Round the corners
-corner.Parent = button
+UICorner_Frame.CornerRadius = UDim.new(0, 8)
+UICorner_Frame.Parent = Frame
 
--- Gradient Background for Button
-local gradient = Instance.new("UIGradient")
-gradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(50, 50, 50)),
-}
-gradient.Rotation = 45
-gradient.Parent = button
+Frame_2.Parent = Frame
+Frame_2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Frame_2.BackgroundTransparency = 0.3
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.Size = UDim2.new(0, 158, 0, 25)
 
--- UI Dragging Logic
-local dragging, dragInput, dragStart, startPos
-local function updateInput(input)
-    local delta = input.Position - dragStart
-    ScreenGui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+TextLabel.Parent = Frame_2
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.112792775, 0, -0.0151660154, 0)
+TextLabel.Size = UDim2.new(0, 121, 0, 26)
+TextLabel.Font = Enum.Font.Sarpanch
+TextLabel.Text = "Made By Wayne"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 25.000
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 0.3
+TextButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.113924049, 0, 0.418181807, 0)
+TextButton.Size = UDim2.new(0, 121, 0, 37)
+TextButton.Font = Enum.Font.SourceSansItalic
+TextButton.Text = "OFF"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 20.000
+
+UICorner_Button.CornerRadius = UDim.new(0, 6)
+UICorner_Button.Parent = TextButton
+
+-- Scripts:
+
+local function IIMAWH_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local RunService = game:GetService("RunService")
+	local Players = game:GetService("Players")
+	
+	local toggleButton = script.Parent
+	local hiddenfling = false
+	local flingThread 
+	if not ReplicatedStorage:FindFirstChild("juisdfj0i32i0eidsuf0iok") then
+		local detection = Instance.new("Decal")
+		detection.Name = "juisdfj0i32i0eidsuf0iok"
+		detection.Parent = ReplicatedStorage
+	end
+	
+	local function fling()
+		local lp = Players.LocalPlayer
+		local c, hrp, vel, movel = nil, nil, nil, 0.1
+	
+		while hiddenfling do
+			RunService.Heartbeat:Wait()
+			c = lp.Character
+			hrp = c and c:FindFirstChild("HumanoidRootPart")
+	
+			if hrp then
+				vel = hrp.Velocity
+				hrp.Velocity = vel * 10000 + Vector3.new(0, 10000, 0)
+				RunService.RenderStepped:Wait()
+				hrp.Velocity = vel
+				RunService.Stepped:Wait()
+				hrp.Velocity = vel + Vector3.new(0, movel, 0)
+				movel = -movel
+			end
+		end
+	end
+	
+	toggleButton.MouseButton1Click:Connect(function()
+		hiddenfling = not hiddenfling
+		toggleButton.Text = hiddenfling and "ON" or "OFF"
+	
+		if hiddenfling then
+			flingThread = coroutine.create(fling)
+			coroutine.resume(flingThread)
+		else
+			hiddenfling = false
+		end
+	end)
+	
 end
+coroutine.wrap(IIMAWH_fake_script)()
+local function QCJQJL_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
 
-button.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        dragging = true
-        dragStart = input.Position
-        startPos = ScreenGui.Position
-        input.Changed:Connect(function()
-            if not input.UserInputState == Enum.UserInputState.Change then return end
-            updateInput(input)
-        end)
-    end
-end)
-
-button.InputEnded:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 then
-        dragging = false
-    end
-end)
-
--- Anti-Fling Function
-local function toggleAntiFling(state)
-    antiFlingEnabled = state
-    if state then
-        local character = player.Character or player.CharacterAdded:Wait()
-        local rootPart = character:WaitForChild("HumanoidRootPart", 10)
-        if not rootPart then return end
-
-        warn("Anti-Fling Enabled")
-        while antiFlingEnabled do
-            local velocity = rootPart.Velocity
-            if velocity.Magnitude > MAX_VELOCITY then
-                rootPart.Velocity = Vector3.zero -- Reset velocity
-                rootPart.AssemblyLinearVelocity = Vector3.zero -- Reset physics
-                warn("Anti-Fling triggered! Velocity reset.")
-            end
-            wait(0.1) -- Check every 0.1 seconds
-        end
-    else
-        warn("Anti-Fling Disabled")
-    end
+	script.Parent.Active = true
+	script.Parent.Draggable = true
 end
-
--- Button Logic
-button.MouseButton1Click:Connect(function()
-    antiFlingEnabled = not antiFlingEnabled
-    if antiFlingEnabled then
-        button.Text = "Disable Anti-Fling"
-        button.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-        button.BorderColor3 = Color3.fromRGB(150, 0, 0)
-        toggleAntiFling(true)
-    else
-        button.Text = "Enable Anti-Fling"
-        button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-        button.BorderColor3 = Color3.fromRGB(255, 255, 255)
-        toggleAntiFling(false)
-    end
-end)
-
--- Debugging: Ensure the UI is visible and functional
-if ScreenGui.Parent ~= playerGui then
-    warn("Failed to parent the UI to PlayerGui. Check if PlayerGui is accessible.")
-else
-    print("UI successfully created and parented to PlayerGui.")
-end
+coroutine.wrap(QCJQJL_fake_script)()
