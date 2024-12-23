@@ -1,84 +1,70 @@
---open source but don't steal
+--open source don't steal 
+
 
 -- Instances:
+
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local Frame_2 = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local TextButton = Instance.new("TextButton")
-local MadeByLabel = Instance.new("TextLabel")
+local UICorner_Frame = Instance.new("UICorner")
+local UICorner_Button = Instance.new("UICorner")
 
 -- Properties:
+
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 print("sub to DuplexScripts")
 
 Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Transparent black background
-Frame.BackgroundTransparency = 0.4  -- Adjusted transparency for better visibility
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.3
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.388539821, 0, 0.427821517, 0)
-Frame.Size = UDim2.new(0, 180, 0, 120)
-Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-Frame.Rotation = 0
-Frame.ClipsDescendants = true
-Frame.CornerRadius = UDim.new(0, 15)  -- Rounded corners
+Frame.Size = UDim2.new(0, 158, 0, 110)
 
--- Header for the GUI
+UICorner_Frame.CornerRadius = UDim.new(0, 8)
+UICorner_Frame.Parent = Frame
+
 Frame_2.Parent = Frame
 Frame_2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-Frame_2.BackgroundTransparency = 0.3  -- Slight transparency for the header
+Frame_2.BackgroundTransparency = 0.3
 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_2.BorderSizePixel = 0
-Frame_2.Size = UDim2.new(1, 0, 0, 25)
-Frame_2.CornerRadius = UDim.new(0, 10)
+Frame_2.Size = UDim2.new(0, 158, 0, 25)
 
 TextLabel.Parent = Frame_2
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.1, 0, -0.015, 0)
-TextLabel.Size = UDim2.new(0, 130, 0, 26)
-TextLabel.Font = Enum.Font.SourceSansBold
-TextLabel.Text = "Touch Fling"
+TextLabel.Position = UDim2.new(0.112792775, 0, -0.0151660154, 0)
+TextLabel.Size = UDim2.new(0, 121, 0, 26)
+TextLabel.Font = Enum.Font.Sarpanch
+TextLabel.Text = "Made By Wayne"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 22
+TextLabel.TextSize = 25.000
 
--- Button: Transparent black with text "ON/OFF"
 TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Transparent black button
-TextButton.BackgroundTransparency = 0.5  -- Semi-transparent button
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 0.3
 TextButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.1, 0, 0.35, 0)
-TextButton.Size = UDim2.new(0, 160, 0, 40)
+TextButton.Position = UDim2.new(0.113924049, 0, 0.418181807, 0)
+TextButton.Size = UDim2.new(0, 121, 0, 37)
 TextButton.Font = Enum.Font.SourceSansItalic
 TextButton.Text = "OFF"
-TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for better visibility
-TextButton.TextSize = 18
-TextButton.TextTransparency = 0  -- Ensure text is visible
-TextButton.TextStrokeTransparency = 0.5
-TextButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)  -- Shadow effect for text readability
-TextButton.CornerRadius = UDim.new(0, 10)  -- Rounded corners for the button
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 20.000
 
--- "Made By Wayne" Label (outside button)
-MadeByLabel.Parent = Frame
-MadeByLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-MadeByLabel.BackgroundTransparency = 1
-MadeByLabel.Position = UDim2.new(0.3, 0, 0.75, 0)
-MadeByLabel.Size = UDim2.new(0, 120, 0, 20)
-MadeByLabel.Font = Enum.Font.SourceSansBold
-MadeByLabel.Text = "Made By Wayne"
-MadeByLabel.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for better visibility
-MadeByLabel.TextSize = 14
-MadeByLabel.TextTransparency = 0  -- Ensure text is visible
-MadeByLabel.TextStrokeTransparency = 0.5
-MadeByLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)  -- Shadow effect for text readability
+UICorner_Button.CornerRadius = UDim.new(0, 6)
+UICorner_Button.Parent = TextButton
 
 -- Scripts:
+
 local function IIMAWH_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
@@ -130,8 +116,6 @@ local function IIMAWH_fake_script() -- TextButton.LocalScript
 	
 end
 coroutine.wrap(IIMAWH_fake_script)()
-
--- Draggable Frame Script
 local function QCJQJL_fake_script() -- Frame.LocalScript 
 	local script = Instance.new('LocalScript', Frame)
 
