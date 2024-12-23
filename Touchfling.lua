@@ -1,5 +1,4 @@
---open source
-
+-- Touch Gui By Wayne
 -- Instances:
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -8,7 +7,6 @@ local Frame_2 = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local TextButton = Instance.new("TextButton")
 local UICorner_Frame = Instance.new("UICorner")
-local UICorner_Frame2 = Instance.new("UICorner")
 local UICorner_Button = Instance.new("UICorner")
 
 -- Properties:
@@ -26,7 +24,7 @@ Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.388539821, 0, 0.427821517, 0)
 Frame.Size = UDim2.new(0, 158, 0, 110)
 
-UICorner_Frame.CornerRadius = UDim.new(0.5, 0)
+UICorner_Frame.CornerRadius = UDim.new(0, 8)
 UICorner_Frame.Parent = Frame
 
 Frame_2.Parent = Frame
@@ -36,9 +34,6 @@ Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_2.BorderSizePixel = 0
 Frame_2.Size = UDim2.new(0, 158, 0, 25)
 
-UICorner_Frame2.CornerRadius = UDim.new(0.5, 0)
-UICorner_Frame2.Parent = Frame_2
-
 TextLabel.Parent = Frame_2
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
@@ -46,7 +41,8 @@ TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(0.112792775, 0, -0.0151660154, 0)
 TextLabel.Size = UDim2.new(0, 121, 0, 26)
-TextLabel.Font = Enum.Font.SarpanchBold
+TextLabel.Font = Enum.Font.Sarpanch
+TextLabel.FontWeight = Enum.FontWeight.Bold
 TextLabel.Text = "Made By Wayne"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 25.000
@@ -58,12 +54,13 @@ TextButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.BorderSizePixel = 0
 TextButton.Position = UDim2.new(0.113924049, 0, 0.418181807, 0)
 TextButton.Size = UDim2.new(0, 121, 0, 37)
-TextButton.Font = Enum.Font.SourceSansBold
+TextButton.Font = Enum.Font.SourceSansItalic
+TextButton.FontWeight = Enum.FontWeight.Bold
 TextButton.Text = "OFF"
 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextSize = 20.000
 
-UICorner_Button.CornerRadius = UDim.new(0.5, 0)
+UICorner_Button.CornerRadius = UDim.new(0, 6)
 UICorner_Button.Parent = TextButton
 
 -- Scripts:
@@ -77,9 +74,7 @@ local function IIMAWH_fake_script() -- TextButton.LocalScript
 	
 	local toggleButton = script.Parent
 	local hiddenfling = false
-	local flingThread
-	local previousVelocity = Vector3.zero
-	
+	local flingThread 
 	if not ReplicatedStorage:FindFirstChild("juisdfj0i32i0eidsuf0iok") then
 		local detection = Instance.new("Decal")
 		detection.Name = "juisdfj0i32i0eidsuf0iok"
@@ -96,19 +91,14 @@ local function IIMAWH_fake_script() -- TextButton.LocalScript
 			hrp = c and c:FindFirstChild("HumanoidRootPart")
 	
 			if hrp then
-				previousVelocity = hrp.Velocity
-				hrp.Velocity = previousVelocity * 10000 + Vector3.new(0, 10000, 0)
+				vel = hrp.Velocity
+				hrp.Velocity = vel * 10000 + Vector3.new(0, 10000, 0)
 				RunService.RenderStepped:Wait()
-				hrp.Velocity = previousVelocity
+				hrp.Velocity = vel
 				RunService.Stepped:Wait()
-				hrp.Velocity = previousVelocity + Vector3.new(0, movel, 0)
+				hrp.Velocity = vel + Vector3.new(0, movel, 0)
 				movel = -movel
 			end
-		end
-		
-		-- Restore velocity to prevent character death
-		if hrp then
-			hrp.Velocity = previousVelocity
 		end
 	end
 	
@@ -119,6 +109,8 @@ local function IIMAWH_fake_script() -- TextButton.LocalScript
 		if hiddenfling then
 			flingThread = coroutine.create(fling)
 			coroutine.resume(flingThread)
+		else
+			hiddenfling = false
 		end
 	end)
 	
