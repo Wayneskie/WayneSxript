@@ -1,3 +1,5 @@
+--open source but don't steal
+
 -- Instances:
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -14,7 +16,7 @@ print("sub to DuplexScripts")
 
 Frame.Parent = ScreenGui
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Transparent black background
-Frame.BackgroundTransparency = 0.7  -- Semi-transparent
+Frame.BackgroundTransparency = 0.4  -- Adjusted transparency for better visibility
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.388539821, 0, 0.427821517, 0)
@@ -27,7 +29,7 @@ Frame.CornerRadius = UDim.new(0, 15)  -- Rounded corners
 -- Header for the GUI
 Frame_2.Parent = Frame
 Frame_2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-Frame_2.BackgroundTransparency = 0.3
+Frame_2.BackgroundTransparency = 0.3  -- Slight transparency for the header
 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_2.BorderSizePixel = 0
 Frame_2.Size = UDim2.new(1, 0, 0, 25)
@@ -48,18 +50,18 @@ TextLabel.TextSize = 22
 -- Button: Transparent black with text "ON/OFF"
 TextButton.Parent = Frame
 TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Transparent black button
-TextButton.BackgroundTransparency = 0.5  -- Semi-transparent
+TextButton.BackgroundTransparency = 0.5  -- Semi-transparent button
 TextButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.BorderSizePixel = 0
 TextButton.Position = UDim2.new(0.1, 0, 0.35, 0)
 TextButton.Size = UDim2.new(0, 160, 0, 40)
 TextButton.Font = Enum.Font.SourceSansItalic
 TextButton.Text = "OFF"
-TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for better visibility
 TextButton.TextSize = 18
-TextButton.TextTransparency = 0.2
+TextButton.TextTransparency = 0  -- Ensure text is visible
 TextButton.TextStrokeTransparency = 0.5
-TextButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)  -- Shadow effect for text readability
 TextButton.CornerRadius = UDim.new(0, 10)  -- Rounded corners for the button
 
 -- "Made By Wayne" Label (outside button)
@@ -70,9 +72,11 @@ MadeByLabel.Position = UDim2.new(0.3, 0, 0.75, 0)
 MadeByLabel.Size = UDim2.new(0, 120, 0, 20)
 MadeByLabel.Font = Enum.Font.SourceSansBold
 MadeByLabel.Text = "Made By Wayne"
-MadeByLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+MadeByLabel.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text for better visibility
 MadeByLabel.TextSize = 14
-MadeByLabel.TextTransparency = 0.3
+MadeByLabel.TextTransparency = 0  -- Ensure text is visible
+MadeByLabel.TextStrokeTransparency = 0.5
+MadeByLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)  -- Shadow effect for text readability
 
 -- Scripts:
 local function IIMAWH_fake_script() -- TextButton.LocalScript 
