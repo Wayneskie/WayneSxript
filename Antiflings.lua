@@ -1,4 +1,4 @@
--- Services
+-- Services Gyat 
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
@@ -11,6 +11,7 @@ local MAX_VELOCITY = 100 -- Max allowable velocity before anti-fling is triggere
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = playerGui
 ScreenGui.Name = "AntiFlingUI"
+ScreenGui.ResetOnSpawn = false -- Make sure the GUI stays even after respawn
 
 -- UI Styling: Transparent Black Background
 ScreenGui.BackgroundTransparency = 0.5
@@ -113,3 +114,10 @@ button.MouseButton1Click:Connect(function()
         toggleAntiFling(false)
     end
 end)
+
+-- Debugging: Ensure the UI is visible and functional
+if ScreenGui.Parent ~= playerGui then
+    warn("Failed to parent the UI to PlayerGui. Check if PlayerGui is accessible.")
+else
+    print("UI successfully created and parented to PlayerGui.")
+end
