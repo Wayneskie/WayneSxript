@@ -1,10 +1,10 @@
-
 -- Instances:
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local Frame_2 = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local TextButton = Instance.new("TextButton")
+local MadeByLabel = Instance.new("TextLabel")
 
 -- Properties:
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -13,42 +13,66 @@ ScreenGui.ResetOnSpawn = false
 print("sub to DuplexScripts")
 
 Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Transparent black background
+Frame.BackgroundTransparency = 0.7  -- Semi-transparent
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.388539821, 0, 0.427821517, 0)
-Frame.Size = UDim2.new(0, 158, 0, 110)
+Frame.Size = UDim2.new(0, 180, 0, 120)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.Rotation = 0
+Frame.ClipsDescendants = true
+Frame.CornerRadius = UDim.new(0, 15)  -- Rounded corners
 
+-- Header for the GUI
 Frame_2.Parent = Frame
 Frame_2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Frame_2.BackgroundTransparency = 0.3
 Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame_2.BorderSizePixel = 0
-Frame_2.Size = UDim2.new(0, 158, 0, 25)
+Frame_2.Size = UDim2.new(1, 0, 0, 25)
+Frame_2.CornerRadius = UDim.new(0, 10)
 
 TextLabel.Parent = Frame_2
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
 TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.112792775, 0, -0.0151660154, 0)
-TextLabel.Size = UDim2.new(0, 121, 0, 26)
-TextLabel.Font = Enum.Font.Sarpanch
+TextLabel.Position = UDim2.new(0.1, 0, -0.015, 0)
+TextLabel.Size = UDim2.new(0, 130, 0, 26)
+TextLabel.Font = Enum.Font.SourceSansBold
 TextLabel.Text = "Touch Fling"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 25.000
+TextLabel.TextSize = 22
 
--- Updated Button: Transparent Black with Text "Made By Wayne"
+-- Button: Transparent black with text "ON/OFF"
 TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Transparent black button
-TextButton.BackgroundTransparency = 0.5 -- Semi-transparent
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Transparent black button
+TextButton.BackgroundTransparency = 0.5  -- Semi-transparent
 TextButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.113924049, 0, 0.418181807, 0)
-TextButton.Size = UDim2.new(0, 121, 0, 37)
+TextButton.Position = UDim2.new(0.1, 0, 0.35, 0)
+TextButton.Size = UDim2.new(0, 160, 0, 40)
 TextButton.Font = Enum.Font.SourceSansItalic
-TextButton.Text = "Made By Wayne"
+TextButton.Text = "OFF"
 TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextButton.TextSize = 20.000
+TextButton.TextSize = 18
+TextButton.TextTransparency = 0.2
+TextButton.TextStrokeTransparency = 0.5
+TextButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.CornerRadius = UDim.new(0, 10)  -- Rounded corners for the button
+
+-- "Made By Wayne" Label (outside button)
+MadeByLabel.Parent = Frame
+MadeByLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MadeByLabel.BackgroundTransparency = 1
+MadeByLabel.Position = UDim2.new(0.3, 0, 0.75, 0)
+MadeByLabel.Size = UDim2.new(0, 120, 0, 20)
+MadeByLabel.Font = Enum.Font.SourceSansBold
+MadeByLabel.Text = "Made By Wayne"
+MadeByLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+MadeByLabel.TextSize = 14
+MadeByLabel.TextTransparency = 0.3
 
 -- Scripts:
 local function IIMAWH_fake_script() -- TextButton.LocalScript 
