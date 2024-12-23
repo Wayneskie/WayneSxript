@@ -1,4 +1,4 @@
--- L roblox lua😡
+ -- L roblox lua😡
 -- Instances:
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -13,8 +13,7 @@ local UICorner_Button = Instance.new("UICorner")
 
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.ResetOnSpawn = false
-print("sub to DuplexScripts")
+print("Sub to the destroyer")
 
 Frame.Parent = ScreenGui
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
