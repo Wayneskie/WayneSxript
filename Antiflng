@@ -1,0 +1,57 @@
+--[[ 
+Anti-Fling Script with GUI Toggle  
+Created by Wayne  
+Prevents players from being flung by spinning characters or objects.  
+]]  
+
+-- Services  
+local Players = game:GetService("Players")  
+local RunService = game:GetService("RunService")  
+
+-- Variables  
+local player = Players.LocalPlayer  
+local button = script.Parent  
+local antiFlingEnabled = false  
+
+-- Configuration  
+local MAX_ROTATION_VELOCITY = 50 -- Maximum allowable rotational velocity  
+
+-- Anti-Fling Function  
+local function checkAntiFling()  
+    while antiFlingEnabled do  
+        local character = player.Character or player.CharacterAdded:Wait()  
+        local rootPart = character:FindFirstChild("HumanoidRootPart")  
+
+        if rootPart then  
+            -- Check rotational velocity  
+            local rotationVelocity = rootPart.AssemblyAngularVelocity  
+            if rotationVelocity.Magnitude > MAX_ROTATION_VELOCITY then  
+                rootPart.AssemblyAngularVelocity = Vector3.zero -- Reset rotational velocity  
+                warn("Anti-Fling triggered! Rotational velocity reset.")  
+            end  
+
+            -- Reset position if excessively displaced (optional)  
+            local position = rootPart.Position  
+            if math.abs(position.Y) > 1000 then  
+                rootPart.CFrame = CFrame.new(0, 5, 0) -- Reset position  
+                warn("Anti-Fling triggered! Position reset.")  
+            end  
+        end  
+
+        RunService.Heartbeat:Wait() -- Check every frame  
+    end  
+end  
+
+-- Button Logic  
+button.Text = "Enable Anti-Fling"  
+button.MouseButton1Click:Connect(function()  
+    antiFlingEnabled = not antiFlingEnabled  
+    if antiFlingEnabled then  
+        button.Text = "Disable Anti-Fling"  
+        warn("Anti-Fling Enabled")  
+        checkAntiFling()  
+    else  
+        button.Text = "Enable Anti-Fling"  
+        warn("Anti-Fling Disabled")  
+    end  
+end)
