@@ -1,4 +1,4 @@
--- Touch Gui By Wayne
+-- L roblox lua😡
 -- Instances:
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -42,7 +42,6 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(0.112792775, 0, -0.0151660154, 0)
 TextLabel.Size = UDim2.new(0, 121, 0, 26)
 TextLabel.Font = Enum.Font.Sarpanch
-TextLabel.FontWeight = Enum.FontWeight.Bold
 TextLabel.Text = "Made By Wayne"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 25.000
@@ -55,7 +54,6 @@ TextButton.BorderSizePixel = 0
 TextButton.Position = UDim2.new(0.113924049, 0, 0.418181807, 0)
 TextButton.Size = UDim2.new(0, 121, 0, 37)
 TextButton.Font = Enum.Font.SourceSansItalic
-TextButton.FontWeight = Enum.FontWeight.Bold
 TextButton.Text = "OFF"
 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextSize = 20.000
